@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Story Writer</title>
+    <script>
+        function loadStory(){
+            var storyName = document.getElementById("name_input").value
+            var storyHTML = localStorage.getItem("storyName")
+            document.getElementById("story_editor").value = storyHTML
+        }
+        function saveStory(){
+            var storyName = document.getElementById("name_input").value
+            var storyHTML = document.getElementById("story_editor").value
+            localStorage.setItem(storyName, storyHTML)
+        }
+        function displayStory(){
+            var storyHTML = document.getElementById("story_editor").value
+            document.getElementById("story_display").innerHTML = storyHTML
+        }
+
+        function checkNumber() {
+            var someNumbers = [25, 11, -2, 14, "What?? This isn't a number!", -1, -10]
+            for (var i = 0; i < 7; i++) {
+                var numberAsText =someNumbers[i]
+
+              //  var numberAsText = document.getElementById("number_input").value
+                var aNumber = parseInt(numberAsText)
+                if (numberAsText != "" && !isNaN(aNumber)) {
+                    var remainder = Math.abs(aNumber % 2)
+                    if (aNumber != 0 && remainder == 0) {
+                        document.getElementById("result_display").innerHTML +=
+                           "<p>"+ aNumber + " is even."
+                    }
+                    else if (aNumber != 0 && remainder == 1) {
+                        document.getElementById("result_display").innerHTML +=
+                            "<p>" + aNumber + " is odd."
+                    }
+                    else {
+                        document.getElementById("result_diaplay").innerHTML +=
+                            "<p> 0 is neither even nor odd.</p>"
+                    }
+                }
+                else {
+                    document.getElementById("result_display").innerHTML +=
+                        "<p>Please enter a number.</p>"
+                }
+            }
+        }
+        
+
+        function saveNote(){
+            var currentDateAndTime = new Date()
+            var aNoteDescription = document.getElementById("description_input").value
+            var aNoteText = document.getElementById("note_editor").value
+            var aCompleteNote = currentDateAndTime.toLocaleString()
+                + "--" + aNoteDescription
+            aCompleteNote += "<p>" + aNoteText + "</p>"
+            var storedNoteString = localStorage.getItem("all_notes")
+            var allNotes = JSON.parse(storedNoteString)
+            if (allNotes == null) {
+                allNotes = []
+            }
+            allNotes.push(aCompleteNote)
+            var allNotesString = JSON.stringify(allNotes)
+            localStorage.setItem("all_notes", allNotesString)
+            showAllNotes()
+            document.getElementById("description_input").value = null
+            document.getElementById("note_editor").value =null
+        }
+
+        function showAllNotes() {
+            var storedNoteString = localStorage.getItem("all_notes")
+            var allNotes = JSON.parse(storedNoteString)
+            if (allNotes != null) {
+                var noteDisplayer = document.getElementById("all_notes_display")
+                noteDisplayer.innerHTML = null
+                var numberOfNotes = allNotes.length
+                for (var i = 0; i < numberOfNotes; i++) {
+                    var aNote = allNotes[i]
+                    noteDisplayer.innerHTML +="<hr><p>" +aNote + "</p>"
+                }
+            }
+        }
+           
+            
+        
+    </script>
+    <style>
+        body {
+            background-color: LightGrey;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            height: 25px;
+            width: 200px;
+            text-indent: 5px;
+        }
+
+            input:focus {
+                outline: none;
+            }
+
+        #note_entry_area {
+            width: 500px;
+            padding-left: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            text-indent: 5px;
+        }
+
+        textarea {
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            width: 90%;
+            height: 150px;
+            text-indent: 5px;
+            button {
+            border-radius: 5px;
+            
+        }
+
+    </style>
+</head>
+<body onload="showAllNotes()">
+    <h1>Story Editor</h1>
+    Story Name:<input id="name_input"></input>
+    <section>
+        <button onclick="loadStory()">Find and Edit It</button>
+        <button onclick="saveStory()">Save It</button>
+        <button onclick="displayStory()">Display It</button>
+    </section>
+    <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+
+    <section id="story_display"></section>
+
+    <h1>Even or Odd???</h1>
+    Enter a Number:<input id="number_input"></input>
+        <button onclick="checkNumber()">Check It</button>
+    <section id= "result_display"></section>
+
+    <section id="note_entry_area">
+        <h1>Note It!</h1>
+        Description:<input id="description_input"></input>
+        <textarea id="note_editor" placeholder="Note it down.Don't forget."></textarea>
+        <button onclick="saveNote()">Save</button>
+    </section>
+    <section id="all_notes_display"></section>
+</body>
+</html>
