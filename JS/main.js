@@ -1,53 +1,53 @@
 const links = [
     {
         label: "WEEK1",
-        url: "WEEK1/index.html"
+        url: "Week01/index.html"
     },
     {
         label: "WEEK2",
-        url: "WEEK2/index.html"
+        url: "Week02/index.html"
     },
     {
         label: "WEEK3",
-        url: "WEEK3/index.html"
+        url: "Week03/index.html"
     },
     {
         label: "WEEK4",
-        url: "WEEK4/index.html"
+        url: "Week04/index.html"
     },
     {
         label: "WEEK5",
-        url: "WEEK5/index.html"
+        url: "Week05/index.html"
     },
     {
         label: "WEEK6",
-        url: "WEEK6/index.html"
+        url: "Week06/index.html"
     },
 
     {
         label: "WEEK7",
-        url: "WEEK7/index.html"
+        url: "Week07/index.html"
     },
 
     {
         label: "WEEK8",
-        url: "WEEK8/index.html"
+        url: "Week08/index.html"
     },
     {
         label: "WEEK9",
-        url: "WEEK9/index.html"
+        url: "Week09/index.html"
     },
     {
         label: "WEEK10",
-        url: "WEEK10/index.html"
+        url: "Week10/index.html"
     },
     {
         label: "WEEK11",
-        url: "WEEK11/index.html"
+        url: "Week11/index.html"
     },
     {
         label: "WEEK12",
-        url: "WEEK12/index.html"
+        url: "Week12/index.html"
     }
 ];
 
