@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Story Writer</title>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function loadStory() {
+            var storyName = document.getElementById("name_input").value
+            var storyHTML = localStorage.getItem("storyName")
+            document.getElementById("story_editor").value = storyHTML
+        }
+        function saveStory() {
+            var storyName = document.getElementById("name_input").value
+            var storyHTML = document.getElementById("story_editor").value
+            localStorage.setItem(storyName, storyHTML)
+        }
+        function displayStory() {
+            var storyHTML = document.getElementById("story_editor").value
+            document.getElementById("story_display").innerHTML = storyHTML
+        }
+
+    </script>
+    <style>
+        body {
+            background-color: LightGrey;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            height: 25px;
+            width: 200px;
+            text-indent: 5px;
+        }
+
+            input:focus {
+                outline: none;
+            }
+
+        #note_entry_area {
+            width: 500px;
+            padding-left: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            text-indent: 5px;
+        }
+
+        textarea {
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            width: 90%;
+            height: 150px;
+            text-indent: 5px;
+            button
+
+        {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Story Editor</h1>
+    Story Name:<input id="name_input"></input>
+    <section>
+        <button onclick="loadStory()">Find and Edit It</button>
+        <button onclick="saveStory()">Save It</button>
+        <button onclick="displayStory()">Display It</button>
+    </section>
+    <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+
+    <section id="story_display"></section>
+
+</body>
+</html>

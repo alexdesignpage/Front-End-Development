@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Even or Odd</title>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </head>
+       <style>
+        body {
+            background-color: LightGrey;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            height: 25px;
+            width: 200px;
+            text-indent: 5px;
+        }
+
+            input:focus {
+                outline: none;
+            }
+
+        #note_entry_area {
+            width: 500px;
+            padding-left: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            text-indent: 5px;
+        }
+
+        textarea {
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            width: 90%;
+            height: 150px;
+            text-indent: 5px;
+            button
+
+        {
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+    
+        function saveNote() {
+            var currentDateAndTime = new Date()
+            var aNoteDescription = document.getElementById("description_input").value
+            var aNoteText = document.getElementById("note_editor").value
+            var aCompleteNote = currentDateAndTime.toLocaleString()
+                + "--" + aNoteDescription
+            aCompleteNote += "<p>" + aNoteText + "</p>"
+            var storedNoteString = localStorage.getItem("all_notes")
+            var allNotes = JSON.parse(storedNoteString)
+            if (allNotes == null) {
+                allNotes = []
+            }
+            allNotes.push(aCompleteNote)
+            var allNotesString = JSON.stringify(allNotes)
+            localStorage.setItem("all_notes", allNotesString)
+            showAllNotes()
+            document.getElementById("description_input").value = null
+            document.getElementById("note_editor").value = null
+        }
+
+        function showAllNotes() {
+            var storedNoteString = localStorage.getItem("all_notes")
+            var allNotes = JSON.parse(storedNoteString)
+            if (allNotes != null) {
+                var noteDisplayer = document.getElementById("all_notes_display")
+                noteDisplayer.innerHTML = null
+                var numberOfNotes = allNotes.length
+                for (var i = 0; i < numberOfNotes; i++) {
+                    var aNote = allNotes[i]
+                    noteDisplayer.innerHTML += "<hr><p>" + aNote + "</p>"
+                }
+            }
+        }
+
+
+
+    </script>
+    
+
+<body onload="showAllNotes()">
+    
+    <section id="note_entry_area">
+        <h1>Note It!</h1>
+        Description:<input id="description_input"></input>
+        <textarea id="note_editor" placeholder="Note it down.Don't forget."></textarea>
+        <button onclick="saveNote()">Save</button>
+    </section>
+    <section id="all_notes_display"></section>
+
+    <script src="JS/main.js"></script>
+</body>
+</html>

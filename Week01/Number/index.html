@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Even or Odd</title>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function checkNumber() {
+            var someNumbers = [25, 11, -2, 14, "What?? This isn't a number!", -1, -10]
+            for (var i = 0; i < 7; i++) {
+                var numberAsText = someNumbers[i]
+
+                //  var numberAsText = document.getElementById("number_input").value
+                var aNumber = parseInt(numberAsText)
+                if (numberAsText != "" && !isNaN(aNumber)) {
+                    var remainder = Math.abs(aNumber % 2)
+                    if (aNumber != 0 && remainder == 0) {
+                        document.getElementById("result_display").innerHTML +=
+                            "<p>" + aNumber + " is even."
+                    }
+                    else if (aNumber != 0 && remainder == 1) {
+                        document.getElementById("result_display").innerHTML +=
+                            "<p>" + aNumber + " is odd."
+                    }
+                    else {
+                        document.getElementById("result_diaplay").innerHTML +=
+                            "<p> 0 is neither even nor odd.</p>"
+                    }
+                }
+                else {
+                    document.getElementById("result_display").innerHTML +=
+                        "<p>Please enter a number.</p>"
+                }
+            }
+        }
+      
+
+    </script>
+    <style>
+        body {
+            background-color: LightGrey;
+        }
+
+        input {
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            height: 25px;
+            width: 200px;
+            text-indent: 5px;
+        }
+
+            input:focus {
+                outline: none;
+            }
+
+        #note_entry_area {
+            width: 500px;
+            padding-left: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            text-indent: 5px;
+        }
+
+        textarea {
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #666666 inset;
+            width: 90%;
+            height: 150px;
+            text-indent: 5px;
+            button
+
+        {
+            border-radius: 5px;
+        }
+    </style>   
+    
+<body onload="showAllNotes()">
+    
+    <h1>Even or Odd???</h1>
+    Enter a Number:<input id="number_input"></input>
+    <button onclick="checkNumber()">Check It</button>
+    <section id="result_display"></section>
+
+   
+    <script src="JS/main.js"></script>
+</body>
+</html>

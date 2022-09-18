@@ -1,158 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Story Writer</title>
-    <script>
-        function loadStory(){
-            var storyName = document.getElementById("name_input").value
-            var storyHTML = localStorage.getItem("storyName")
-            document.getElementById("story_editor").value = storyHTML
-        }
-        function saveStory(){
-            var storyName = document.getElementById("name_input").value
-            var storyHTML = document.getElementById("story_editor").value
-            localStorage.setItem(storyName, storyHTML)
-        }
-        function displayStory(){
-            var storyHTML = document.getElementById("story_editor").value
-            document.getElementById("story_display").innerHTML = storyHTML
-        }
-
-        function checkNumber() {
-            var someNumbers = [25, 11, -2, 14, "What?? This isn't a number!", -1, -10]
-            for (var i = 0; i < 7; i++) {
-                var numberAsText =someNumbers[i]
-
-              //  var numberAsText = document.getElementById("number_input").value
-                var aNumber = parseInt(numberAsText)
-                if (numberAsText != "" && !isNaN(aNumber)) {
-                    var remainder = Math.abs(aNumber % 2)
-                    if (aNumber != 0 && remainder == 0) {
-                        document.getElementById("result_display").innerHTML +=
-                           "<p>"+ aNumber + " is even."
-                    }
-                    else if (aNumber != 0 && remainder == 1) {
-                        document.getElementById("result_display").innerHTML +=
-                            "<p>" + aNumber + " is odd."
-                    }
-                    else {
-                        document.getElementById("result_diaplay").innerHTML +=
-                            "<p> 0 is neither even nor odd.</p>"
-                    }
-                }
-                else {
-                    document.getElementById("result_display").innerHTML +=
-                        "<p>Please enter a number.</p>"
-                }
-            }
-        }
-        
-
-        function saveNote(){
-            var currentDateAndTime = new Date()
-            var aNoteDescription = document.getElementById("description_input").value
-            var aNoteText = document.getElementById("note_editor").value
-            var aCompleteNote = currentDateAndTime.toLocaleString()
-                + "--" + aNoteDescription
-            aCompleteNote += "<p>" + aNoteText + "</p>"
-            var storedNoteString = localStorage.getItem("all_notes")
-            var allNotes = JSON.parse(storedNoteString)
-            if (allNotes == null) {
-                allNotes = []
-            }
-            allNotes.push(aCompleteNote)
-            var allNotesString = JSON.stringify(allNotes)
-            localStorage.setItem("all_notes", allNotesString)
-            showAllNotes()
-            document.getElementById("description_input").value = null
-            document.getElementById("note_editor").value =null
-        }
-
-        function showAllNotes() {
-            var storedNoteString = localStorage.getItem("all_notes")
-            var allNotes = JSON.parse(storedNoteString)
-            if (allNotes != null) {
-                var noteDisplayer = document.getElementById("all_notes_display")
-                noteDisplayer.innerHTML = null
-                var numberOfNotes = allNotes.length
-                for (var i = 0; i < numberOfNotes; i++) {
-                    var aNote = allNotes[i]
-                    noteDisplayer.innerHTML +="<hr><p>" +aNote + "</p>"
-                }
-            }
-        }
-           
-            
-        
-    </script>
-    <style>
-        body {
-            background-color: LightGrey;
-        }
-
-        input {
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #666666 inset;
-            height: 25px;
-            width: 200px;
-            text-indent: 5px;
-        }
-
-            input:focus {
-                outline: none;
-            }
-
-        #note_entry_area {
-            width: 500px;
-            padding-left: 5px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #666666 inset;
-            text-indent: 5px;
-        }
-
-        textarea {
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #666666 inset;
-            width: 90%;
-            height: 150px;
-            text-indent: 5px;
-            button {
-            border-radius: 5px;
-            
-        }
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles.css" />
 </head>
-<body onload="showAllNotes()">
-    <h1>Story Editor</h1>
-    Story Name:<input id="name_input"></input>
-    <section>
-        <button onclick="loadStory()">Find and Edit It</button>
-        <button onclick="saveStory()">Save It</button>
-        <button onclick="displayStory()">Display It</button>
-    </section>
-    <textarea id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+<body>
 
-    <section id="story_display"></section>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Week 1</h1>
 
-    <h1>Even or Odd???</h1>
-    Enter a Number:<input id="number_input"></input>
-        <button onclick="checkNumber()">Check It</button>
-    <section id= "result_display"></section>
+            <h2 class="contents grid-container" id="contents"></h2>
+        </div>
+    </div>
+    
+        <h1> </h1>
+        <div class="text-center">
+            <h1>Site Pointe Notes</h1>
+            <div>
+                <h2>
+                    The rise of the mobile devises changes the way we share data. This changes the online traffic.
+                    Mobile First is the key with this amount of traffic. Responsive retrofitted websites are good but not enough.
+                    When you design for the mobile first you are building for the future.
 
-    <section id="note_entry_area">
-        <h1>Note It!</h1>
-        Description:<input id="description_input"></input>
-        <textarea id="note_editor" placeholder="Note it down.Don't forget."></textarea>
-        <button onclick="saveNote()">Save</button>
-    </section>
-    <section id="all_notes_display"></section>
+                </h2>
+
+            </div>
+
+
+            <h3>Things to remember:</h3>
+
+            <ul>
+                <li>Desktop sales declining.</li>
+                <li>You see lot of people using their phones.</li>
+                <li>Start small scale up </li>
+                <li>Mobile is not a fad.</li>
+
+            </ul>
+        </div>
+        <div class="grid-container text-center">
+            <div>
+
+                <h2> Mobile Users </h2>
+
+                <p> We need to watch what users are doing to create a better design.</p>
+                <ul class="blob">
+                    <li>Be There</li>
+                    <li>Be Useful </li>
+                    <li>Be Quick </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Reachability Matters </h2>
+
+                <ul class="blob">
+                    <li> Speed Matters </li>
+                    <li>Reduce Image usage </li>
+                    <li>SVG formats images </li>
+                    <li> Optimize and Minify CSS and JS files </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Primary Controls </h2>
+
+
+                <h3>
+                    Moving down the controls to the bottom of the screen. Hamburger button needs to look like a clickable button.
+                    Autocomplete on the form. Process progress bar. Allow showing passwords. One line credit card forms. Don’t force
+                    copy and Paste.
+                </h3>
+
+            </div>
+
+            <div>
+                <h2>Mobile Advertising </h2>
+
+
+                <h3> Video adds. Small adds for mobile. </h3>
+
+                <ul class="blob">
+
+                    <li>Stop using pop-ups/Pop-overs</li>
+                    <li>Give the user content</li>
+                    <li>Keep it sleek</li>
+                    <li>Empathy is huge.</li>
+
+                </ul>
+            </div>
+
+        </div>
+    
+
+    <script src="JS/main.js"></script>
+    <style>
+      
+
+        h2 {
+            color: indianred;
+           
+        }
+
+        h3 {
+            color: #164A41
+        }
+
+       
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 50px;
+            padding: 20px;
+        }
+
+            .grid-container > div {
+                text-align: center;
+                padding: 30px 0;
+            }
+
+        .item1 {
+            grid-row: 1 / 4;
+        }
+
+
+        .blob {
+            padding: 10%;
+            border-top-left-radius: 70% 60%;
+            border-top-right-radius: 30% 40%;
+            border-bottom-right-radius: 30% 60%;
+            border-bottom-left-radius: 70% 40%;
+            background-color: peachpuff;
+           
+        }
+
+      
+    </style>
 </body>
+
 </html>
