@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,27 +37,14 @@
             <h2 class="contents grid-container" id="contents"></h2>
         </div>
     </div>
-     
-    <div>
-        <button id='button'>Click Me</button>
-
-        <script src="JS/main.js"></script>
-    </div>
     
-    <script>
-        const btn = document.getElementById('button');
-
-        const rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'rebeccapurple', 'violet'];
-
-        function change() {
-            document.body.style.background = rainbow[Math.floor(7 * Math.random())];
-        }
-        btn.addEventListener('click', change);</script>
-
- 
-
-    <style>
-    </style>
-</body>
-
+        <section class='dojo'>
+            <div class='quiz-body'>
+                <header>
+                    <h1>Quiz Ninja!</h1>
+                </header>
+            </div>
+        </section>
+        <script src='main.js'></script>
+    </body>
 </html>
