@@ -64,3 +64,4 @@ function generateContents() {
 }
 
 
+document.addEventListener("load", generateContents());
