@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 1</title>
+    <title>Week 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
-    
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -36,53 +36,26 @@
             <h2 class="contents grid-container" id="contents"></h2>
         </div>
     </div>
+     
+    <div>
+        <button id='button'>Click Me</button>
 
-    <h1> </h1>
-    <div class="text-center">
-       
-
+        <script src="JS/main.js"></script>
     </div>
+    
+    <script>
+        const btn = document.getElementById('button');
 
+        const rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'rebeccapurple', 'violet'];
 
-    <script src="JS/main.js"></script>
+        function change() {
+            document.body.style.background = rainbow[Math.floor(7 * Math.random())];
+        }
+        btn.addEventListener('click', change);</script>
+
+ 
+
     <style>
-
-
-        h2 {
-            color: indianred;
-        }
-
-        h3 {
-            color: #164A41
-        }
-
-
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            grid-gap: 50px;
-            padding: 20px;
-        }
-
-            .grid-container > div {
-                text-align: center;
-                padding: 30px 0;
-            }
-
-        .item1 {
-            grid-row: 1 / 4;
-        }
-
-
-        .blob {
-            padding: 10%;
-            border-top-left-radius: 70% 60%;
-            border-top-right-radius: 30% 40%;
-            border-bottom-right-radius: 30% 60%;
-            border-bottom-left-radius: 70% 40%;
-            background-color: peachpuff;
-        }
     </style>
 </body>
 
