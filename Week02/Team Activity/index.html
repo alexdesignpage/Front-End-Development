@@ -11,27 +11,37 @@
 <body>
     <section>
       <h1>Step 01</h1>
-        <input id=" "></input>
+        <input id=" ">
         <button onclick ="">Show Text</button>
     </section>
 
     <section>
         <h1>Step 02</h1>
-          <input id=" "></input>
-          <button onclick="">SUM</button>
+          <input id="sumall">
+          <button onclick="sumAll()">SUM</button>
     </section>
 
     <section>
         <h1>Step 03</h1>
-        <input id=" "></input>
-        <input id=" "></input>
+        <input id=" ">
+        <input id=" ">
         <button onclick="add">+</button>
         <!--Stretch goals-->
         <button onclick="subtract">-</button>
         <button onclick="multiply">*</button>
 
     </section>
+    <script>
+        function sumAll() {
+            var numberInput= document.getElementById("sumall").value;
+            var sum = 0;
+            for (var i = 1; i <= numberInput; i++) {
+                sum += i;
+                document.getElementById("output").innerHTML = sum;
+            }
 
+        }
+    </script>
     <div id="output"></div>
 
     <script src="main.js"></script>

@@ -10,6 +10,7 @@ button {
 }
 
 body {
+    color:black;
     margin: 100px 33%;
     padding: 10px 20px 50px 20px;
     border:double;

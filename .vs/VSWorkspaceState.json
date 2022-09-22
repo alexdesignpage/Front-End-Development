@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Testing code",
     "\\Week01",
-    "\\Week01\\Story"
+    "\\Week01\\JS",
+    "\\Week01\\Story",
+    "\\Week02",
+    "\\Week02\\Quiz",
+    "\\Week02\\Rainbow"
   ],
-  "SelectedNode": "\\Testing code\\index.html",
+  "SelectedNode": "\\Week02\\index.html",
   "PreviewInSolutionExplorer": false
 }
