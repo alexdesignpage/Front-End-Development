@@ -12,3 +12,18 @@ function sumAll() {
         }
     }
 }
+
+// STEP 01
+//  GET ELEMENTS
+const inputUser = document.getElementById('input01');
+const btn01 = document.getElementById('btn01');
+const output = document.getElementById('output');
+
+// FUNCTION TO DISPLAY TEXT IN THE DIV 
+function displayText() {
+    output.innerHTML = inputUser.value;
+    inputUser.value = '';
+}
+
+// ACTIVE BUTTON
+btn01.addEventListener('click', displayText);
