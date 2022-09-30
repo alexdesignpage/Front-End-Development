@@ -8,8 +8,12 @@ const links = [
         url: "Notes/index.html"
     },
     {
-        label: "Team Activity",
-        url: "Team Activity/index.html"
+        label: "Team Activity Part1",
+        url: "Array Cardio Day1/index.html"
+    },
+    {
+        label: "Team Activity Part 2",
+        url: "Array Cardio Day2/index.html"
     }
 ];
 
