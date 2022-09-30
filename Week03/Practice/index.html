@@ -7,18 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Writer</title>
     <script>
+        
+       
         function makeUser() {
+            var N = document.getElementById("name_input").value;
+            console.log(N) 
             return {
-                name: "John",
+                name: N,
                 ref() {
                     return this;
                 }
             };
         }
-
         let user = makeUser();
 
-        alert(user.ref().name); // John
+        alert(user.ref().name)
+
+        
+          
     </script>
     <style>
         textarea {
@@ -30,7 +36,10 @@
 </head>
 
 <body>
+    Name:<input id="name_input"></input>
     
+        <button onclick="makeUser()">Click</button>
+
 </body>
 
 
