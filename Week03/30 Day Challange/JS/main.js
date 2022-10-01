@@ -1,24 +1,15 @@
 const links = [
     {
-        label: "Practice",
-        url: "Practice/index.html"
+        label: "Drum Kit",
+        url: "01 - JavaScript Drum Kit/index-START.html"
     },
     {
-        label: "Notes",
-        url: "Notes/index.html"
+        label: "Clock",
+        url: "02 - JS and CSS Clock/index-START.html"
     },
     {
-        label: "Team Activity Part1",
-        url: "Array Cardio Day1/index.html"
-    },
-    {
-        label: "Team Activity Part 2",
-        url: "Array Cardio Day2/index.html"
-    }
-    ,
-    {
-        label: "30 days of JAVA",
-        url: "30 Day Challange/index.html"
+        label: "CSS Variables",
+        url: "03 - CSS Variables/index-START.html"
     }
 ];
 
