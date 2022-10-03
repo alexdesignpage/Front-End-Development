@@ -1,0 +1,58 @@
+<!doctype html>
+
+<meta charset="utf8">
+
+<link rel="stylesheet" href="../styles.css" />
+
+<body>
+
+<h1>Mountains</h1>
+
+
+
+<div id="mountains"></div>
+
+</body>
+
+<script>
+  const MOUNTAINS = [
+    {Name: "Kilimanjaro", Height: 5895, Place: "Tanzania"},
+    {Name: "Everest", Height: 8848, Place: "Nepal"},
+    {Name: "Mount Fuji", Height: 3776, Place: "Japan"},
+    {Name: "Vaalserberg", Height: 323, Place: "Netherlands"},
+    {Name: "Denali", Height: 6168, Place: "United States"},
+    {Name: "Popocatepetl", Height: 5465, Place: "Mexico"},
+    {Name: "Mont Blanc", Height: 4808, Place: "Italy/France"}
+  ];
+
+  function buildTable(data) {
+    let table = document.createElement("table");
+  
+    let fields = Object.keys(data[0]);
+    let headRow = document.createElement("tr");
+    fields.forEach(function(field) {
+      let headCell = document.createElement("th");
+      headCell.appendChild(document.createTextNode(field));
+      headRow.appendChild(headCell);
+    });
+    table.appendChild(headRow);
+
+    data.forEach(function(object) {
+      let row = document.createElement("tr");
+      fields.forEach(function(field) {
+        let cell = document.createElement("td");
+        cell.appendChild(document.createTextNode(object[field]));
+        if (typeof object[field] == "number") {
+          cell.style.textAlign = "right";
+        }
+        row.appendChild(cell);
+      });
+      table.appendChild(row);
+    });
+
+    return table;
+  }
+
+  document.querySelector("#mountains")
+    .appendChild(buildTable(MOUNTAINS));
+</script>
