@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Writer</title>
+    <style>
+        textarea {
+            width: 800px;
+            height: 250px;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    Name:<input id="name_input"/>
+    <button onclick="alert('Welcome ' + makeUser().name+'!')">Click</button>
+    <script>
+        function makeUser() {
+            var N = document.getElementById("name_input").value;
+            console.log(N)
+            return {
+                name: N,
+                ref() {
+                    return this;
+                    
+                }
+            };
+            
+        }
+        let user = makeUser();
+        
+    </script>
+</body>
+</html>

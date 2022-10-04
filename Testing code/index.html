@@ -7,22 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Writer</title>
     <script>
-        function loadStory() {
-            var storyName = document.getElementById("name_input").value
-            var storyHTML = localStorage.getItem("storyName")
-            document.getElementById("story_editor").value = storyHTML
+        function makeUser() {
+            return {
+                name: "John",
+                ref() {
+                    return this;
+                }
+            };
         }
 
-        function saveStory() {
-            var storyName = document.getElementById("name_input").value
-            var storyHTML = document.getElementById("story_editor").value
-            localStorage.setItem(storyName, storyHTML)
-        }
+        let user = makeUser();
 
-        function displayStory() {
-            var storyHTML = document.getElementById("story_editor").value
-            document.getElementById("story_display").innerHTML = storyHTML
-        }
+        alert(user.ref().name); // John
     </script>
     <style>
         textarea {
@@ -34,17 +30,7 @@
 </head>
 
 <body>
-    <h1>Story Editor</h1>
-    Story Name:<input id="name_input">
     
-    <section>
-        <button onclick="loadStory()">Find and Edit it</button>
-        <button onclick="saveStory()">Save it</button>
-        <button onclick="displayStory()">Display it</button>
-    </section>
-
-    <textarea id="story_editor" placeholder="Write a totally awesome story here"></textarea>
-    <section id="story_display"></section>
 </body>
 
 
