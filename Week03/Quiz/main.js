@@ -1,8 +1,28 @@
+const superman = {
+    name: 'Superman',
+    'real name': 'Clark Kent',
+    height: 75,
+    weight: 235,
+    hero: true,
+    villain: false,
+    allies: ['Batman', 'Supergirl', 'Superboy'],
+    fly() {
+        return 'Up, up and away!';
+    }
+};
 const quiz = [
     ["What is Superman's real name?", "Clark Kent"],
     ["What is Wonder Woman's real name?", "Diana Prince"],
     ["What is Batman's real name?", "Bruce Wayne"]
 ];
+
+const jla = {
+    superman: { realName: 'Clark Kent' },
+    batman: { realName: 'Bruce Wayne' },
+    wonderWoman: { realName: 'Diana Prince' },
+    flash: { realName: 'Barry Allen' },
+    aquaman: { realName: 'Arthur Curry' },
+    }
 
 function start(quiz) {
     let score = 0;
