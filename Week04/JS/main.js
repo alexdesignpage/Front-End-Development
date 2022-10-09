@@ -9,7 +9,7 @@ const links = [
     },
     {
         label: "Team Activity",
-        url: "index.html"
+        url: "Team Activity/index.html"
     }
     ,
     {
