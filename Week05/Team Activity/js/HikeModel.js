@@ -45,6 +45,6 @@ export default class HikeModel {
     }
     getHikeByName(hikeName) {
         // Filter the hikes for the record identified by hikeName and return it
-        return ;
+        return hikeName;
     }
 }
