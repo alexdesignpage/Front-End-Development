@@ -16,7 +16,7 @@ input.value = 'Search Here';
 const form = document.forms['hero'];
 form.addEventListener('submit', makeHero, false);
 
-function makeHero(event) {
+function makeHero(event) { 
 
     event.preventDefault(); // prevent the form from being submitted
 
