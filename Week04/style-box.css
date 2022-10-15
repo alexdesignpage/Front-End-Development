@@ -1,0 +1,56 @@
+table {
+    margin: 50px auto;
+}
+
+h1 {
+    text-shadow: 0 0 7px rgb(255, 230, 0);
+    color:rgb(255, 174, 0);
+}
+
+body {
+    background-color: black;
+    color: aqua;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+}
+
+
+table tr td {
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    font-size: 26px;
+}
+
+/* FIRST AND SECOND ROW */
+table tr:nth-child(1) td:nth-child(1), table tr:nth-child(2) td:nth-child(1) {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+table tr:nth-child(1) td:nth-child(2), table tr:nth-child(2) td:nth-child(2) {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+table tr:nth-child(1) td:nth-child(3), table tr:nth-child(2) td:nth-child(3) {
+    border-bottom: 2px solid;
+}
+
+/* THIRD ROW */
+table tr:nth-child(3) td:nth-child(1), table tr:nth-child(3) td:nth-child(2) {
+    border-right: 2px solid;
+    margin: 0;
+}
+
+button {
+    background-color: black;
+    border: 1px solid aqua;
+    color: aqua;
+}
+
+button:hover {
+    border: 1px solid rgb(255, 174, 0);
+    color: rgb(255, 174, 0);
+    box-shadow: 0 0 5px rgb(255, 174, 0);
+}
