@@ -7,12 +7,10 @@
     <meta task="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <title>To-Do</title>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
+   
              
-        </div>
-    </nav>
+        
+ 
 
      <script>
 
@@ -25,8 +23,8 @@
             var aName = document.getElementById("to-do-item").value
             var aState = "new"
             var aList = {
-                "task": aName,
-                "state": aState
+                "task": aName
+    
                 
             }
 
@@ -56,9 +54,9 @@
                 var numberOfItems = allItems.length
                 for (var i = 0; i < allItems.length; i++) {
                     var aList = allItems[i]
-                 ItemsDisplay.innerHTML += '<div id="item' + i + '"><input type="checkbox" onclick="crossedOut(\'item' + i + '\');">'+aList["state"] + ": "+ aList["task"] +"<p>"
-                    var listItemHTML =  + listItem + 
-'<input type = "button" value="Remove" onclick="removeItem(\'item' + i + '\');"></div>';
+                 ItemsDisplay.innerHTML += '<div id="item' + i + '"><input type="checkbox" onclick="crossedOut(\'item' + i + '\');">'+ aList["task"] +"<p>"
+                   
+
                 }
             }
         }
@@ -84,7 +82,49 @@
         <section id="all-todo"></section>
 </body>
 
+<style>
+    button {
+    color: white;
+    background-color: seagreen;
+    border-color: black;
+    border-radius: 4px;
+    margin: 0.2em 0;
+    display: block;
+    width: 100%;
+    font-size: 20px;
+}
 
+body {
+    color:black;
+    margin: 100px 33%;
+    padding: 10px 20px 50px 20px;
+    border:double;
+}
+
+input {
+    color: darkblue;
+    border-color: black;
+    margin: 0.2em 0;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+}
+
+div {
+    
+   
+    display: block;
+    width: 100%;
+    font-size: 30px;
+}
+
+.aList {
+
+    font-size: 16px;
+}
+
+</style>
 
 
 
