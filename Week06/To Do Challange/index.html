@@ -5,69 +5,9 @@
     <meta task="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta task="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
         <title>To-Do</title>
    
-             
-        
- 
-
-     <script>
-
-        function removeItem(item){
-            var itemToRemove = document.getElementById(item);
-                itemToRemove.parentNode.removeChild(itemToRemove);
-            }
-
-        function addItem() {
-            var aName = document.getElementById("to-do-item").value
-            var aState = "new"
-            var aList = {
-                "task": aName
-    
-                
-            }
-
-            console.log(aList);
-            var allItems = null
-            var storedToDoItems = localStorage["all_items"]
-            if (storedToDoItems == null) {
-                allItems = []
-            }
-            else {
-                allItems = JSON.parse(storedToDoItems)
-            }
-            allItems.push(aList)
-            var allList = JSON.stringify(allItems)
-            localStorage["all_items"] = allList
-            showAllToDos()
-
-            document.getElementById("to-do-item").value = null
-         
-        }
-        function showAllToDos() {
-            var storedToDoItems = localStorage["all_items"]
-            if (storedToDoItems != null) {
-                var allItems = JSON.parse(storedToDoItems)
-                var ItemsDisplay = document.getElementById("all-todo")
-             ItemsDisplay.innerHTML = null
-                var numberOfItems = allItems.length
-                for (var i = 0; i < allItems.length; i++) {
-                    var aList = allItems[i]
-                 ItemsDisplay.innerHTML += '<div id="item' + i + '"><input type="checkbox" onclick="crossedOut(\'item' + i + '\');">'+ aList["task"] +"<p>"
-                   
-
-                }
-            }
-        }
-
-        function clearAll(){
-        localStorage.clear();
-            location.reload();
-
-        }
-
-    </script>
     </head>
 
 <body onload="showAllToDos()">
@@ -81,50 +21,9 @@
         </section>
         <section id="all-todo"></section>
 </body>
-
-<style>
-    button {
-    color: white;
-    background-color: seagreen;
-    border-color: black;
-    border-radius: 4px;
-    margin: 0.2em 0;
-    display: block;
-    width: 100%;
-    font-size: 20px;
-}
-
-body {
-    color:black;
-    margin: 100px 33%;
-    padding: 10px 20px 50px 20px;
-    border:double;
-}
-
-input {
-    color: darkblue;
-    border-color: black;
-    margin: 0.2em 0;
-    border-radius: 5px;
-    display: block;
-    width: 100%;
-    font-size: 16px;
-}
-
-div {
+<script src="ToDos.js"></script>
     
-   
-    display: block;
-    width: 100%;
-    font-size: 30px;
-}
 
-.aList {
-
-    font-size: 16px;
-}
-
-</style>
 
 
 

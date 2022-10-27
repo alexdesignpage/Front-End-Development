@@ -1,0 +1,36 @@
+
+    button {
+    color: white;
+    background-color: seagreen;
+    border-color: black;
+    border-radius: 4px;
+    margin: 0.2em 0;
+    display: block;
+    width: 100%;
+    font-size: 20px;
+}
+
+body {
+    color:black;
+    margin: 100px 33%;
+    padding: 10px 20px 50px 20px;
+    border:double;
+}
+
+input {
+    color: darkblue;
+    border-color: black;
+    margin: 0.2em 0;
+    border-radius: 5px;
+    
+    
+    font-size: 16px;
+}
+
+
+
+
+.aList {
+
+    font-size: 16px;
+}
