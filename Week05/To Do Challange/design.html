@@ -32,20 +32,35 @@
     <div class="jumbotron">
         <div class="container text-center">
             <h1>To Do List</h1>
-            <section>
-            <p>Wireframe</p>
-            <img src="/Week05/To Do Challange/wireframe.png" width="300" height="600">
-            </section>
-            <section>
-            <p>Design</p>
-            <img src="/Week05/To Do Challange/draft.png" width="300" height="600">
-            </section>
-
+            
+            <div class="row">
+                <div class="column">
+                <p>Wireframe</p>
+                  <img src="wireframe.jpg" alt="Snow" style="width:100%">
+                </div>
+                <div class="column">
+                <p>Draft</p>
+                  <img src="draft.jpg" alt="Forest" style="width:100%">
+                </div>
+              </div>
             <h2 class="contents grid-container" id="contents"></h2>
         </div>
     </div>
 
     <script src="JS/main.js"></script>
+    <style>/* Three image containers (use 25% for four, and 50% for two, etc) */
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 5px;
+        }
+        
+        /* Clear floats after image containers */
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }</style>
     
 </body>
 
