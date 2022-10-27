@@ -1,8 +1,5 @@
 const links = [
-    {
-        label: "Practice",
-        url: "Practice/index.html"
-    },
+   
     {
         label: "Notes",
         url: "Notes/index.html"
@@ -13,7 +10,7 @@ const links = [
     },
     {
         label: "To-Do Challange",
-        url: "To Do Challange/index.html"
+        url: "To Do Challange/design.html"
     }
     
 ];
