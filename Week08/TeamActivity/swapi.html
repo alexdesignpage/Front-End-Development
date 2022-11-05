@@ -7,66 +7,69 @@
 </head>
 
 <body>
-
-
+    <button id="people">People</button>
+    <button id="ships">Ships</button>
+    <ul id="renderList"></ul>
     <button id="prev">Pre</button>
     <button id="next">Next</button>
 
 </body>
 <script>
-    let pageNumber = 1;
-    let ships;
-    window.addEventListener("load", e => {
-        ships = showShips();
-        console.log(ships);
-    })
-
-async function next(ship){
-    if(ship["next"]  === null && ship.next === null){
-        return 0;
+async function getJSON(url){
+    try {
+        const response = await fetch(url);
+        if(response.ok){
+            const responseJson = await response.json();
+            console.log(responseJson);
+            return responseJson;
+        } else {
+            throw Error(response.statusText);
+        }
+    } catch (err){
+        console.log(err)
     }
-    console.log(ship["next"]);
-    let obj;
-    await fetch(ship.next)
-  .then((response) => response.json())
-  .then((data) => {ships = data});
-    return obj;
 }
 
-async function prev(ship){
-    if(ship["previous"] === null && ship.next === null){
-        return 0;
-    }
-    console.log(ship["previous"]);
-    let obj;
-    await fetch(ship.previous)
-  .then((response) => response.json())
-  .then((data) => {ships = data});
-    return obj;
+function renderList(list){
+    const output = document.getElementById("renderList");
+    output.innerHTML = '';
+    list.forEach(element => {
+        const li = document.createElement("li");
+        li.innerText = element.name;
+        output.appendChild(li);
+    });
 }
 
-async function showShips() {
-    //?page='+`${page}`
-    let obj;
-    await fetch('https://swapi.dev/api/starships/')
-  .then((response) => response.json())
-  .then((data) => {ships = data});
-    return obj;
-    
+async function showShips(url = "https://swapi.dev/api/starships/"){
+    const ships = await getJSON(url);
+    renderList(ships.results);
+    if(ships.next){
+        document.getElementById("next").ontouchend = () => {showShips(ships.next)};
+    }
+    if(ships.previous){
+        document.getElementById("prev").ontouchend = () => {showShips(ships.prev)};
+    }
 }
 
-document.getElementById('next').addEventListener('touchend', (event) => {
-    if(ships.next !== null){
-        ships = prev(ships);
+async function showPeople(url = "https://swapi.dev/api/people/"){
+    const people = await getJSON(url);
+    renderList(people.results);
+    if(people.next){
+        document.getElementById("next").ontouchend = () => {showPeople(people.next)};
     }
-    console.log(ships);
-});
+    if(people.previous){
+        document.getElementById("prev").ontouchend = () => {showPeople(people.prev)};
+    }
+}
 
-document.getElementById('prev').addEventListener('touchend', (event) => {
-    if(ships.previous !== null){
-        ships = prev(ships);
-    }
-    console.log(ships);
-});
+document.getElementById("ships").addEventListener("touchend", e => {
+    showShips();
+})
+
+document.getElementById("people").addEventListener("touchend", e => {
+    showPeople();
+})
+
+
 </script>
 </html>
