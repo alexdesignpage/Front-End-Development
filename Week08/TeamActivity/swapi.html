@@ -8,8 +8,32 @@
 
 <body>
 
-   
+
+    <button id="pre">Pre</button>
+    <button id="next">Next</button>
 
 </body>
+<script>
+onload(showShips());
 
+
+
+function showShips() {
+
+
+    fetch('https://swapi.dev/api/starships/')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+  var next = data[0].next;
+
+ 
+
+  document.getElementById('next').addEventListener('touchend', (event) => {fetch(data.next)
+
+  .then((response) => response.json())
+  .then((data) => console.log(data));});
+
+
+}
+</script>
 </html>
