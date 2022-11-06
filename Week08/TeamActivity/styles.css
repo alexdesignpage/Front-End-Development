@@ -1,28 +1,34 @@
 button {
-    background-color: #4CAF50;
+    background-color: rgb(7,48,70);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    width: 40%;
     font-size: 16px;
   }
+
+
 
 ul {
     list-style: none;
     padding: 0px;
+    background-image: url(/Week08/TeamActivity/ships.jpg);
+    
 }
 
 ul li:before
 {
-    content: '\2605';
+    content: '\2605'
     margin: 0 1em;    /* any design */
+    color: antiquewhite;
 } 
 
 li {
    
-
+    color: white;
     padding: 5px 10px;
     border: 1px solid #eee;
 }
