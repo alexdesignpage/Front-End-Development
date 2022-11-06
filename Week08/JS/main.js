@@ -6,7 +6,7 @@ const links = [
        
     {
         label: "Team Activity",
-        url: "Team Activity/swapi.html"
+        url: "TeamActivity/swapi.html"
     }
 ];
 
