@@ -15,13 +15,14 @@ button {
 ul {
     list-style: none;
     padding: 0px;
+    background-blend-mode:;
     background-image: url(/Week08/TeamActivity/ships.jpg);
     
 }
 
 ul li:before
 {
-    content: '\2605'
+    content: '\2605';
     margin: 0 1em;    /* any design */
     color: antiquewhite;
 } 
