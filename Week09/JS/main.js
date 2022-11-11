@@ -6,7 +6,7 @@ const links = [
        
     {
         label: "Team Activity",
-        url: "/Week09/01 - JavaScript Drum Kit/index-FINISHED.html"
+        url: "01 - JavaScript Drum Kit/index-FINISHED.html"
     }
 ];
 
