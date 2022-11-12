@@ -24,7 +24,7 @@ body,html {
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-  
+  position: relative;
   width: 10rem;
   text-align: center;
   color: white;
@@ -32,15 +32,40 @@ body,html {
   text-shadow: 0 0 .5rem black;
 }
 
-.move {
-  transform: translateY(200px);
+.move0 {
+
+ top: 100px;
 }
 
+.move1{
+
+ top: 200px;
+}
 .move2{
-  transform: translateY(400);
+  
+  top: 300px;
+ 
 }
 .move3{
-  transform: translateY(600);
+  top: 400px;
+}
+.move4{
+  top: 500px;
+}
+.move5{
+  top: 600px;
+}
+.move6{
+  top: 700px;
+}
+.move7{
+  top: 800px;
+}
+.move8{
+  top: 900px;
+}
+.move9{
+  top: 1000px;
 }
 
 .playing {
