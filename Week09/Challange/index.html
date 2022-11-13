@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head></head>
+<body>
+<h1>WEEK9</h1>
+<h2>App Ideas</h2>
+
+<div class="parent">
+    <div class="div1">
+        <img src="/Week09/Challange/Food Mood.jpg">
+    </div>
+
+    <div class="div2"> 
+        <img src="/Week09/Challange/Food Mood – 1.jpg">
+    </div>
+    <div class="div3">
+        <img src="/Week09/Challange/Film Finder.jpg">
+    </div>
+    <div class="div4"> 
+        <img src="/Week09/Challange/Film Finder – 1.jpg">
+    </div>
+    
+
+</body>
+
+    <style>
+
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        padding-left:  70px;
+        padding-top: 20px;
+    }
+        .parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    }
+
+    .example{
+        padding: 10pt;
+        margin: 10pt;
+        color: darkblue;
+        text-decoration: underline;
+
+    }
+
+    #translate:hover{
+        transform: translateX(40px);
+        display: inline-block;
+    }
+
+    #scale:hover{
+        transform: translateX(40px) scale(1.5);
+    }
+    
+    #rotate:hover{
+        transform: rotate(10deg) translateX(40px) scale(1.5);
+
+    }
+    #scew:hover{
+        transform: skew(15deg, 4deg);
+    }
+
+    #transform:hover {
+        transition-property: margin-right, color;
+    }
+
+    img {
+        max-width: 500px;
+    }
+    
+    #delay:hover{
+        
+    transition-property: transform; 
+    transition-duration: 0.2s;  
+    transition-timing-function: ease-out;
+    transition-delay: 50ms;
+}
+    
+    </style>
