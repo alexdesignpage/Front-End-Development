@@ -3,6 +3,10 @@ const links = [
         label: "Reading",
         url: "Reading/index.html"
     },
+    {
+        label: "Challange",
+        url: "Challange/index.html"
+    },
        
     {
         label: "Team Activity",
