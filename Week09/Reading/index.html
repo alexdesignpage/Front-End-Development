@@ -5,6 +5,7 @@
     <title>Week 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
  
 </head>
 <body>
@@ -36,11 +37,16 @@
             <button onclick="Button1()">Site Point Portal</button>
             <button onclick="Button2()">Move the PopUp</button>
             <button onclick="Button3()">Screan Size</button>
+            <button onclick="Button4()">Timeout</button>
             <h2 class="contents grid-container" id="contents"></h2>
         </div>
+       
     </div>
-
-    <h1> </h1>
+    <h2>Animation Example</h2>
+        
+        <button onclick="cancelAnimationFrame(id)">STOP</button>
+    <div id='square'></div>
+    
     <div class="text-center">
        
 
@@ -69,8 +75,24 @@
                         );
         }
     
-       
+        function Button4(){
+          
+        
+    
+        window.setTimeout( () => alert("Time's Up!"), 3000);
+        }
 
+        const squareElement = document.getElementById('square');
+        let angle = 0;
+
+        function rotate() {
+         angle = (angle + 2)%360;
+        squareElement.style.transform = `rotate(${angle}deg)`
+        window.requestAnimationFrame(rotate);
+        
+}
+
+const id = requestAnimationFrame(rotate);
 
 
     </script>
