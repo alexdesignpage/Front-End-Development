@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
+</head>
+<body>
+    
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Reading</h1>
+            <h2>Try all those buttons</h2>
+            <button onclick="Button1()">Site Point Portal</button>
+            <button onclick="Button2()">Move the PopUp</button>
+            <button onclick="Button3()">Screan Size</button>
+            <h2 class="contents grid-container" id="contents"></h2>
+        </div>
+    </div>
+
+    <h1> </h1>
+    <div class="text-center">
+       
+
+    </div>
+
+    <script>
+
+
+
+        window.alert('Hello');
+        window.confirm('Do you wish to continue?');
+        window.prompt('Please enter your name:');
+        
+        function Button1() {
+            const popup = window.open('https://sitepoint.com','SitePoint','width=400,height=400,resizable=yes');
+          
+        }
+
+        function Button2() {
+            window.moveTo(600,700);
+          
+        }
+        function Button3(){
+           window.alert("Scren Height is "+window.screen.availHeight+'\n'+
+                        "Scren Width is "+window.screen.availWidth
+                        );
+        }
+    
+       
+
+
+
+    </script>
+   
+</body>
+
+</html>
