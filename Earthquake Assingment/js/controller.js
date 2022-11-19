@@ -1,7 +1,6 @@
-import { getLocation } from './utilities.js';
-// import Quake from './Quake.js';
-// import QuakesView from './QuakesView.js';
-
+import { getLocation, getJSON } from './utilities.js';
+import Quake from './model.js';
+import QuakesView from './view.js';
 // Quake controller
 export default class QuakesController {
   constructor(parent, position = null) {
@@ -13,14 +12,18 @@ export default class QuakesController {
       lat: 0,
       lon: 0
     };
+
+    this.radius = 300;
     // this is how our controller will know about the model and view...we add them right into the class as members.
-    // this.quakes = new Quake();
-    // this.quakesView = new QuakesView();
+    this.quakes = new Quake();
+    this.quakesView = new QuakesView();
   }
   async init() {
     // use this as a place to grab the element identified by this.parent, do the initial call of this.initPos(), and display some quakes by calling this.getQuakesByRadius()
-    this.parentElement = document.querySelector(this.parent);
-    await this.initPos();
+    this.parentElement = document.querySelector("#quakeList");
+    const location = await this.initPos();
+    const quakesList = await this.getQuakesForLocation(location);
+    console.log(quakesList);
     this.getQuakesByRadius(100);
   }
   async initPos() {
@@ -30,7 +33,7 @@ export default class QuakesController {
         // try to get the position using getLocation()
         let locResp = await getLocation();
         // take a look at where the information we need is in the returned object
-        console.log(locResp);
+        //console.log(locResp);
         // we really only need the coords portion
         
         // if we get the location back then set the latitude and longitude into this.position
@@ -39,12 +42,20 @@ export default class QuakesController {
           lat: location.coords.latitude,
           lon: location.coords.longitude
         }
-
-        console.log(this.position)
+        return location;
       } catch (error) {
         console.log(error);
       }
     }
+  }
+
+  async getQuakesForLocation(location){
+    const baseUrl = this.quakes.baseUrl;
+    const query =
+    baseUrl +
+    `&latitude=${location.coords.latitude}&longitude=${location.coords.longitude}&maxradiuskm=${this.radius}`;
+    // fetch the data
+    return await getJSON(query);
   }
 
   async getQuakesByRadius(radius = 100) {
@@ -55,7 +66,7 @@ export default class QuakesController {
     // get the list of quakes in the specified radius of the location
     const quakeList = await this.quakes.getEarthQuakesByRadius(
       this.position,
-      100
+      300
     );
     // render the list to html
     this.quakesView.renderQuakeList(quakeList, this.parentElement);
@@ -66,6 +77,7 @@ export default class QuakesController {
   }
   async getQuakeDetails(quakeId) {
     // get the details for the quakeId provided from the model, then send them to the view to be displayed
-   
+   const quake = this.quakes.getQuakeById(quakeId);
+   this.quakesView.renderQuake(quake, this.parentElement);
   }
 }
