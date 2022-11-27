@@ -1,3 +1,10 @@
+export class Errors {
+  constructor(errorElementId) {
+    this.errorElement = document.getElementById(errorElementId);
+  }
+
+}
+  
   // Server Address
   const baseURL = 'http://127.0.0.1:3000/';
   // helper function to make an http request with fetch.
@@ -33,8 +40,8 @@
     // not catching the error here...so we will need to catch it later on and handle it.
   }
 
-  makeRequest('login', 'POST', {
-    password: 'user1',
-    email: 'user1@email.com'
+  //makeRequest('login', 'POST', {
+    //password: 'user1',
+    //email: 'user1@email.com'
     
-    });
+    //});
