@@ -1,0 +1,177 @@
+.card img{
+    border-style:double;
+    border-color:#f1f1f1;
+    height: 65%;
+    width: 90%;
+}
+.movie-title{
+    height: 20px;
+}
+
+
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 90%;
+    align-items: center;
+    
+}
+
+.card{
+    padding: 15%;
+    height: 300px;
+    width: 150px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+  grid-gap: 10px;
+  padding: 10%;
+}
+    
+    
+.grid>div {
+  font-size: 15px;
+  padding: .5em;
+  color: #ffffff;
+  background: darkslategray;
+  text-align: center;
+}
+
+
+    
+.search{
+        
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+}
+
+body {
+        background-color:#ECECEC;   
+}
+
+
+.narrow-search{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.filter{
+    
+    background-color: black; 
+    width: 25%;
+    
+    
+}
+
+
+
+.filter h2{
+    background-color: black;
+    color: #BBBBBB;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    border-style: none;
+    
+}
+
+
+form.example1 [type=option]{
+
+padding: 0%;
+margin: 0%;
+font-size: 15px;
+border-style: none;
+width: 100%;
+text-align: center;
+
+}
+
+.header-app-name{
+        background-color: #BBBBBB;
+        padding: 0px;
+        margin: 0px;
+    
+        text-align: center;  
+        
+    }
+    
+    
+.header {
+        width: 100%;
+        padding: 10%;
+        padding-bottom: 0%;
+    }
+  
+    
+  
+.logo{
+        max-height: 200px;
+    
+     
+    }
+
+  
+div.example input[type=text]{
+
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  box-sizing: border-box;
+  margin: 0%;
+}
+
+
+
+div.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+
+  background: darkslategray;
+  color: white;
+  font-size: 15px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0%;
+}
+
+form.example button:hover {
+  background: lightblue;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 480px) {
+
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 90%;
+    align-items: center;
+    
+}
+}
