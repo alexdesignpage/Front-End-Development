@@ -3,6 +3,7 @@
     border-color:#f1f1f1;
     height: 65%;
     width: 90%;
+    image-rendering: optimizeSpeed;
 }
 .movie-title{
     height: 20px;
