@@ -100,6 +100,7 @@ console.log(searched);
    .then(response => {
     if (response.ok) {
         response.json().then(data => {
+            console.log(data);
             for (let movie of data.results) {
                 searchIMDB.push(movie)
                 
@@ -114,9 +115,9 @@ console.log(searched);
 }
 
 
-
+searchIMDB = [];
 function AdvancedSerch(){
-    searchIMDB = [];
+   
     const element = document.getElementById("films");
     element.innerHTML = '';
     
@@ -136,6 +137,7 @@ console.log(searched);
    .then(response => {
     if (response.ok) {
         response.json().then(data => {
+            console.log(data);
             for (let movie of data.results) {
                 searchIMDB.push(movie)
                 
@@ -155,27 +157,95 @@ console.log(searched);
 
  function displayFilms(...array){
 
-    for (var i = 0; i < array.length; i += 1) {
+    for (var i = 0; i < array.length; i++) {
      var div = document.createElement("div");
      var title = document.createElement("h4");
      var img = document.createElement("img");
-     //var year = document.createElement("p")
+     const code = array[i].id;
      div.setAttribute('id', i);
      div.classList.add("card");
      div.classList.add("div"+i);
+     
+     div.ontouchend = () => {GetMovieInformation(code)};
      title.classList.add("movie-title");
      title.innerHTML= array[i].title;
-     img.setAttribute('src',array[i].image);
-    // year.innerHTML = array[i].year;
-     
-     
+     img.setAttribute('src', array[i].image);
+    //  img.setAttribute('id', code);
      document.getElementById('films').appendChild(div);
      document.getElementById(i).appendChild(title); 
      document.getElementById(i).appendChild(img); 
-    // document.getElementById(i).appendChild(year); 
     
         }
+        
  }
 
+
+//  fetches information on the movie submited creates the movie card if a card is found
+//   @param movie
+
+
+ function GetMovieInformation(movie) {
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      }
     
+fetch(`https://imdb-api.com/en/API/Title/${imdbApiKey}/${movie}`, requestOptions)
+    
+    
+
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    if ("Error" in data) {
+                        errorHandler("unable to find data for this movie")
+                    } else {
+                        displayMovieData(data);
+                        
+                    }
+                });
+            } else {
+                errorHandler("unable to find data for this movie")
+            }
+        });
+}
+
+function displayMovieData(Movie) {
+    console.log(Movie);
+   
+    document.getElementById("myForm").style.display = "block";
+   
+     var img = document.createElement("img");
+     document.getElementById('moviePlot').innerHTML = Movie.plot;
+     document.getElementById('movieCast').innerHTML= Movie.stars;
+    //var genre = Movie.genre;
+     document.getElementById('movieTitle').innerHTML= Movie.title;
+     img.classList.add("cardImage");
+     img.setAttribute('src', Movie.image);
+    //  document.getElementById('movieTitle').innerHTML = Movie.title;
+    //  document.getElementById('movieCast').innerHTML = Movie.cast; 
+    // document.getElementById('moviePlot').innerHTML = plot;
+    // document.getElementById('movieCast').innerHTML = cast;
+     
+     document.getElementById('movieImage').appendChild(img); 
+
+  }
+      
+function closeForm() {
+        const element1 = document.getElementById("movieTitle");
+        element1.innerHTML = '';
+        const element2 = document.getElementById("movieImage");
+        element2.innerHTML = '';
+        const element3 = document.getElementById("movieCast");
+        element3.innerHTML = '';
+        const element4 = document.getElementById("moviePlot");
+        element4.innerHTML = '';
+        document.getElementById("myForm").style.display = "none";
+      }
+
+   
+
+    
+
 
