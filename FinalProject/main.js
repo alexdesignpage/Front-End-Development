@@ -116,8 +116,9 @@ console.log(searched);
 }
 
 
-searchIMDB = [];
+
 function AdvancedSerch(){
+    searchIMDB = [];
    
     const element = document.getElementById("films");
     element.innerHTML = '';

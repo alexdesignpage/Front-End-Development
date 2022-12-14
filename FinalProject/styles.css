@@ -3,7 +3,7 @@
     border-color:#f1f1f1;
     height: 65%;
     width: 90%;
-    image-rendering: optimizeSpeed;
+    image-resolution: 300dpi;
 }
 .movie-title{
     height: 20px;
@@ -108,7 +108,7 @@ text-align: center;
 
 .MoreInfo img{
   max-width: 50px;
-  image-rendering: optimizeSpeed;
+  image-resolution: 300dpi;
 }
 
 .MoreInfo{
