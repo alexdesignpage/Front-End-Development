@@ -1,12 +1,5 @@
 const links = [
-    {
-        label: "Practice",
-        url: "Practice/index.html"
-    },
-    {
-        label: "Notes",
-        url: "Notes/index.html"
-    },
+  
    
     
     {

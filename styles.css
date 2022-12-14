@@ -1,31 +1,14 @@
-@media screen and (max-width: 480px) {
 
 
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        
-    }
 
     
-    }
 
     .contents div{
         border-style:groove;
         border-radius: 10px;
-        padding: 5%;
-    }
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-column-gap: 50px;
-        grid-row-gap: 50px;
-        padding: 5%;
-       
-
-        align-items: center;
+        text-align: left;
+        padding: 2%;
+        margin: 5px;
+        
         
     }

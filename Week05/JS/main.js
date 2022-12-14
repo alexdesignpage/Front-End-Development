@@ -1,9 +1,6 @@
 const links = [
    
-    {
-        label: "Notes",
-        url: "Notes/index.html"
-    },
+    
     {
         label: "Team Activity",
         url: "Team Activity/hiking-start.html"

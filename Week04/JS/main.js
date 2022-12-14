@@ -1,12 +1,9 @@
 const links = [
     {
         label: "Practice",
-        url: "Practice/index.html"
+        url: "Practice/hero.html"
     },
-    {
-        label: "Notes",
-        url: "Notes/index.html"
-    },
+    
     {
         label: "Team Activity",
         url: "Team Activity/index.html"
