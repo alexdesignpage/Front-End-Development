@@ -4,7 +4,8 @@
   let dateDropdown = document.getElementById('year'); 
        
   let currentYear = new Date().getFullYear();    
-  let earliestYear = 1894;     
+  let earliestYear = 1894; 
+  
   while (currentYear >= earliestYear) {      
     let dateOption = document.createElement('option');          
     dateOption.text = currentYear;      
@@ -211,22 +212,74 @@ fetch(`https://imdb-api.com/en/API/Title/${imdbApiKey}/${movie}`, requestOptions
         });
 }
 
+
+function fullCast(Cast) {
+
+    console.log(Cast);
+    document.getElementById('FullCast').ontouchend = ()  => {CloseCast()};
+
+    for (var i = 0; i < Cast.length; i++){
+        var div = document.createElement("div");
+        var actorName = document.createElement("p");
+        var img = document.createElement("img");
+        div.setAttribute('id', Cast[i].id);
+        
+        img.setAttribute('src', Cast[i].image);
+        actorName.innerHTML= Cast[i].name;
+        document.getElementById('FullCastHolder').appendChild(div); 
+        document.getElementById(Cast[i].id).appendChild(img); 
+        document.getElementById(Cast[i].id).appendChild(actorName); 
+       
+
+    }
+
+  }
+
+function CloseCast(){
+    document.getElementById('FullCastHolder').innerHTML = "";
+
+}
+
+
+
 function displayMovieData(Movie) {
     console.log(Movie);
    
     document.getElementById("myForm").style.display = "block";
-   
+    
      var img = document.createElement("img");
      document.getElementById('moviePlot').innerHTML = Movie.plot;
-     document.getElementById('movieCast').innerHTML= Movie.stars;
-    //var genre = Movie.genre;
+     document.getElementById('movieCast').innerHTML = Movie.stars;
+     document.getElementById('movieGenre').innerHTML = Movie.genres;
      document.getElementById('movieTitle').innerHTML= Movie.title;
+     document.getElementById('movieRatings').innerHTML= Movie.imDbRating;
+     for(var i = 0; i < 10; i++){
+
+        var Rate = Math.round(Movie.imDbRating);
+        if(i<Rate){
+        
+        var star = document.createElement("span");
+        star.classList.add("fa");
+        star.classList.add("fa-star");
+        star.classList.add("checked");
+        
+        document.getElementById('Stars').appendChild(star);
+
+        }
+        else{
+        var star = document.createElement("span");
+        star.classList.add("fa");
+        star.classList.add("fa-star");
+        
+        document.getElementById('Stars').appendChild(star);
+        
+
+        }
+
+     }
      img.classList.add("cardImage");
      img.setAttribute('src', Movie.image);
-    //  document.getElementById('movieTitle').innerHTML = Movie.title;
-    //  document.getElementById('movieCast').innerHTML = Movie.cast; 
-    // document.getElementById('moviePlot').innerHTML = plot;
-    // document.getElementById('movieCast').innerHTML = cast;
+     document.getElementById('FullCast').ontouchend = () => {fullCast(Movie.actorList)};
      
      document.getElementById('movieImage').appendChild(img); 
 
@@ -241,7 +294,9 @@ function closeForm() {
         element3.innerHTML = '';
         const element4 = document.getElementById("moviePlot");
         element4.innerHTML = '';
+        CloseCast();
         document.getElementById("myForm").style.display = "none";
+        document.getElementById('Stars').innerHTML = "";
       }
 
    

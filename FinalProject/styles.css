@@ -9,7 +9,12 @@
     height: 20px;
 }
 
+.MoreInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px,1fr));
 
+  padding: 10%;
+}
 
 
 .parent {
@@ -22,6 +27,8 @@
     align-items: center;
     
 }
+
+
 
 .card{
     padding: 15%;
@@ -56,7 +63,8 @@
 }
 
 body {
-        background-color:#ECECEC;   
+        background-color:#ECECEC;  
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 
@@ -80,6 +88,7 @@ body {
     color: #BBBBBB;
     margin: 0px;
     padding: 0px;
+    font-size: medium;
     text-align: center;
     border-style: none;
     
@@ -97,19 +106,34 @@ text-align: center;
 
 }
 
+.MoreInfo img{
+  max-width: 50px;
+  image-rendering: optimizeSpeed;
+}
+
+.MoreInfo{
+  font-size: small;
+  font-style: italic;
+  text-decoration: underline;
+  color: cadetblue;
+}
 .header-app-name{
-        background-color: #BBBBBB;
-        padding: 0px;
-        margin: 0px;
-    
-        text-align: center;  
+
+  padding: 7.5px;
+  font-size:large;
+  float: left;
+  width: 80%;
+  box-sizing: border-box;
+  background-color: #BBBBBB;
+  text-align: center;  
+  margin: 0%;
         
     }
     
     
 .header {
         width: 100%;
-        padding: 10%;
+        padding: 5%;
         padding-bottom: 0%;
     }
   
@@ -262,3 +286,22 @@ article {
 .infoblock{
   color: cadetblue;
 }
+
+.link{
+  padding: 1%;
+  margin: 5%;
+  box-shadow:#BBBBBB;
+  border: #333;
+  border-style: groove;
+  }
+
+
+
+  .checked {
+    color: yellow;
+  }
+
+  .Rating{
+  margin-left: 5%;
+
+  }

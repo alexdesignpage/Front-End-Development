@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Film Finder</title>
 </head>
 
@@ -18,16 +19,17 @@
                     <img class="logo" src="../FinalProject/app logo movie.png">
                 </td>
                 <td class="search">
-
+                    <div class="example">
                     <h1 class="header-app-name">Film Finder</h1>
+                    <button  onclick="getFilms()">Top 250</button>
+                </div>
                     <div class="example">
                         <input type="text" id="searched" class="header-search-input" placeholder="Search">
                         <button onclick="AdvancedSerch()"><i class="fa fa-search"></i></button>
+                        
                     </div>
 
-                    <div>
-                        <a class="link"  onclick="getFilms()">TOP 250</a>
-                    </div>
+                   
                     <table class="narrow-search">
                         <tr class="filters">
                             <td class="filter">
@@ -50,6 +52,7 @@
                                 <form class="example1" action="">
                                     <form class="example1" action="">
                                         <select type="option" id="year" name="year">
+                                            <option value="new Date().getFullYear(),1984-01-01">All</option>
                                         </select>
                                     </form>
                                 </form>
@@ -346,27 +349,45 @@
                     </table>
                 </td>
             </tr>
-        </table>
+        
     
-
+</table>
     </div>
-
+  
+       
 
 <div class="form-popup" id="myForm">
 
 <header>
   <h1 class="Popup-header" id="movieTitle"></h1>
 </header>
+<div class="Rating">Ratings: 
+    <div>
+        <span id="Stars">  
+
+      
+        </span>
+    </div>
+   
+    <div id="movieRatings">
+     
+    </div>
+
+</div>
 
 <section>
   <div  style="width: 50%;" id="movieImage">  
+    
   </div>
+  
   <article class="movieInform" id="movieInfo">
     
     <p class="infoblock">Plot</p><p class="MovieDetails" id="moviePlot"> </p>
     
     
     <p class="infoblock">Cast</p><p class="MovieDetails"  id="movieCast"></p>
+    <div class="MoreInfo" id="FullCast" >Full Cast</div>
+    <div class="MoreInfo" id="FullCastHolder"></div>
     
     <p class="infoblock" >Genre</p><p class="MovieDetails" id="movieGenre"></p>
   </article>
