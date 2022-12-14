@@ -187,18 +187,36 @@ form.example::after {
 
 @media screen and (max-width: 480px) {
 
-
+.grid{grid-template-columns: repeat(auto-fill, minmax(100px,1fr));}
 
 .parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    width: 90%;
-    align-items: center;
+   
     
 }
+
+.mobilecard{
+  display:block;
+}
+
+.logo{
+
+  display: none;
+}
+
+
+
+
+
+.filter{
+  display: inline;
+ 
+
+}
+
+
 }
 
 /* The popup form - hidden by default */
